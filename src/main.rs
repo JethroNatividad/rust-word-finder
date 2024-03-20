@@ -23,6 +23,19 @@ mod tests {
             "One should never utilize the word \"utilize\" in writing. Use \"use\" instead."
         )
     }
+
+    #[test]
+    fn test_replace_occurence() {
+        let content: String =
+            "One should never utilize the word \"utilize\" in writing. Use \"use\" instead."
+                .to_string();
+        let expected: String =
+            "One should never use the word \"use\" in writing. Use \"use\" instead.".to_string();
+        assert_eq!(
+            replace_occurence(content, "utilize".to_string(), "use".to_string()),
+            expected
+        );
+    }
 }
 
 fn main() {
