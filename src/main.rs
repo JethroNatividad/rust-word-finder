@@ -2,3 +2,7 @@
 // Inputs: file
 // process: find the word utilize, and replace it with use
 // outputs: write to the file.
+
+fn read_file(filename: String) -> String {}
+fn replace_occurence(text: String) -> String {}
+fn write_file(text: String, filename: String) {}
