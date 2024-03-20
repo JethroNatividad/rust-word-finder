@@ -4,7 +4,7 @@
 // outputs: write to the file.
 
 fn read_file(filename: String) -> String {}
-fn replace_occurence(text: String) -> String {}
+fn replace_occurence(text: String, find: String, replace: String) -> String {}
 fn write_file(text: String, filename: String) {}
 
 fn main() {
