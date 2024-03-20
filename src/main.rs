@@ -6,3 +6,7 @@
 fn read_file(filename: String) -> String {}
 fn replace_occurence(text: String) -> String {}
 fn write_file(text: String, filename: String) {}
+
+fn main() {
+    println!("Hello World!")
+}
