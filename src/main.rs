@@ -16,7 +16,13 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_read_file() {}
+    fn test_read_file() {
+        let content: String = read_file("input.txt".to_string());
+        assert_eq!(
+            content,
+            "One should never utilize the word \"utilize\" in writing. Use \"use\" instead."
+        )
+    }
 }
 
 fn main() {
