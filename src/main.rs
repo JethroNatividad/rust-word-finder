@@ -9,7 +9,7 @@ fn read_file(filename: String) -> String {
 fn replace_occurence(text: String, find: String, replace: String) -> String {
     return "".to_string();
 }
-fn write_file(text: String, filename: String) {}
+fn write_file(text: &String, filename: String) {}
 
 #[cfg(test)]
 mod tests {
@@ -35,6 +35,14 @@ mod tests {
             replace_occurence(content, "utilize".to_string(), "use".to_string()),
             expected
         );
+    }
+
+    #[test]
+    fn test_write_file() {
+        let content = "Hello World!".to_string();
+        write_file(&content, "test.txt".to_string());
+        let read_content = read_file("test.txt".to_string());
+        assert_eq!(content, read_content)
     }
 }
 
