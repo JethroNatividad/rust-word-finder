@@ -8,7 +8,7 @@ fn read_file(file_path: String) -> String {
     let contents = fs::read_to_string(file_path).expect("Should have been able to read the file.");
     return contents;
 }
-fn replace_occurence(text: String, find: String, replace: String) -> String {
+fn replace_occurence(text: &String, find: &String, replace: &String) -> String {
     return "".to_string();
 }
 fn write_file(text: &String, file_path: String) {}
@@ -28,15 +28,14 @@ mod tests {
 
     #[test]
     fn test_replace_occurence() {
+        let find = "utilize".to_string();
+        let replace = "use".to_string();
         let content: String =
             "One should never utilize the word \"utilize\" in writing. Use \"use\" instead."
                 .to_string();
         let expected: String =
             "One should never use the word \"use\" in writing. Use \"use\" instead.".to_string();
-        assert_eq!(
-            replace_occurence(content, "utilize".to_string(), "use".to_string()),
-            expected
-        );
+        assert_eq!(replace_occurence(&content, &find, &replace), expected);
     }
 
     #[test]
