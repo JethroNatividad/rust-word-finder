@@ -9,7 +9,7 @@ fn read_file(file_path: String) -> String {
     return contents;
 }
 fn replace_occurence(text: &String, find: &String, replace: &String) -> String {
-    return "".to_string();
+    return text.replace(find, replace);
 }
 fn write_file(text: &String, file_path: String) {}
 
