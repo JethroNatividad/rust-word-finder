@@ -1,15 +1,17 @@
+use std::fs;
 // Write a program that reads an input text file, looks for an occurence of a word, replace that word with another else, and write to that file.
 // Inputs: file
 // process: find the word utilize, and replace it with use
 // outputs: write to the file.
 
-fn read_file(filename: String) -> String {
-    return "".to_string();
+fn read_file(file_path: String) -> String {
+    let contents = fs::read_to_string(file_path).expect("Should have been able to read the file.");
+    return contents;
 }
 fn replace_occurence(text: String, find: String, replace: String) -> String {
     return "".to_string();
 }
-fn write_file(text: &String, filename: String) {}
+fn write_file(text: &String, file_path: String) {}
 
 #[cfg(test)]
 mod tests {
@@ -17,7 +19,7 @@ mod tests {
 
     #[test]
     fn test_read_file() {
-        let content: String = read_file("input.txt".to_string());
+        let content: String = read_file("content.txt".to_string());
         assert_eq!(
             content,
             "One should never utilize the word \"utilize\" in writing. Use \"use\" instead."
