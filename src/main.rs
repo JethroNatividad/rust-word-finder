@@ -55,5 +55,8 @@ mod tests {
 }
 
 fn main() {
-    println!("Hello World!")
+    let input_path = "content.txt".to_string();
+    let output_path = "output.txt".to_string();
+    let find_word = "utilize".to_string();
+    let replace_to = "use".to_string();
 }
