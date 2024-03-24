@@ -1,4 +1,5 @@
 use std::fs::{read_to_string, File};
+use std::io::prelude::*;
 
 // Write a program that reads an input text file, looks for an occurence of a word, replace that word with another else, and write to that file.
 // Inputs: file
@@ -12,7 +13,11 @@ fn read_file(file_path: String) -> String {
 fn replace_occurence(text: &String, find: &String, replace: &String) -> String {
     return text.replace(find, replace);
 }
-fn write_file(text: &String, file_path: String) {}
+fn write_file(text: &String, file_path: &str) -> std::io::Result<()> {
+    let mut file = File::create(file_path)?;
+    file.write_all(text.as_bytes())?;
+    Ok(())
+}
 
 #[cfg(test)]
 mod tests {
@@ -42,7 +47,8 @@ mod tests {
     #[test]
     fn test_write_file() {
         let content = "Hello World!".to_string();
-        write_file(&content, "test.txt".to_string());
+        let output_path = "test.txt".to_string();
+        write_file(&content, &output_path).expect("Should have been able to write to file");
         let read_content = read_file("test.txt".to_string());
         assert_eq!(content, read_content)
     }
