@@ -1,11 +1,12 @@
-use std::fs;
+use std::fs::{read_to_string, File};
+
 // Write a program that reads an input text file, looks for an occurence of a word, replace that word with another else, and write to that file.
 // Inputs: file
 // process: find the word utilize, and replace it with use
 // outputs: write to the file.
 
 fn read_file(file_path: String) -> String {
-    let contents = fs::read_to_string(file_path).expect("Should have been able to read the file.");
+    let contents = read_to_string(file_path).expect("Should have been able to read the file.");
     return contents;
 }
 fn replace_occurence(text: &String, find: &String, replace: &String) -> String {
