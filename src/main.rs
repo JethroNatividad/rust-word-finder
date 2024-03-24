@@ -21,7 +21,7 @@ fn write_file(text: &String, file_path: &str) -> std::io::Result<()> {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use super::{read_file, replace_occurence, write_file};
 
     #[test]
     fn test_read_file() {
