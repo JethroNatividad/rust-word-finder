@@ -13,10 +13,10 @@ fn read_file(file_path: String) -> String {
 fn replace_occurence(text: &String, find: &String, replace: &String) -> String {
     return text.replace(find, replace);
 }
-fn write_file(text: &String, file_path: &str) -> std::io::Result<()> {
-    let mut file = File::create(file_path)?;
-    file.write_all(text.as_bytes())?;
-    Ok(())
+fn write_file(text: &String, file_path: &str) {
+    let mut file = File::create(file_path).expect("Should have been able to create the file");
+    file.write_all(text.as_bytes())
+        .expect("Should have been able to writ to file");
 }
 
 #[cfg(test)]
@@ -48,7 +48,7 @@ mod tests {
     fn test_write_file() {
         let content = "Hello World!".to_string();
         let output_path = "test.txt".to_string();
-        write_file(&content, &output_path).expect("Should have been able to write to file");
+        write_file(&content, &output_path);
         let read_content = read_file("test.txt".to_string());
         assert_eq!(content, read_content)
     }
@@ -59,4 +59,8 @@ fn main() {
     let output_path = "output.txt".to_string();
     let find_word = "utilize".to_string();
     let replace_to = "use".to_string();
+
+    let content = read_file(input_path);
+    let output = replace_occurence(&content, &find_word, &replace_to);
+    write_file(&output, &output_path);
 }
